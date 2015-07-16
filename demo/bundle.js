@@ -27,24 +27,24 @@ var primitives = {};
 module.exports = function(thing) {
     var wrapper = document.createElement('div');
     wrapper.className = classPrefix;
-    wrapper.appendChild(render(thing));
+    wrapper.appendChild(render(thing, 0));
     return wrapper;
 }
 
-function render(thing) {
+function render(thing, depth) {
     if (thing === null) {
         return primitives['null']();
     } else if (typeof thing !== 'object') {
         return primitives[typeof thing](thing);
     } else if (isArray(thing)) {
-        return renderArray(thing);
+        return renderArray(thing, depth);
     } else {
         for (var i = 0; i < rules.length; ++i) {
             if (rules[i].test(thing)) {
-                return rules[i].render(thing);
+                return rules[i].render(thing, depth);
             }
         }
-        return renderObject(thing);
+        return renderObject(thing, depth);
     }
 }
 
@@ -55,9 +55,9 @@ function renderPrimitive(str, classSuffix) {
     return el;
 }
 
-function renderCollapsible(header, className, items) {
+function renderCollapsible(header, className, items, depth) {
     var el = document.createElement('div');
-    el.className = classPrefix + '-' + className;
+    el.className = classPrefix + '-Aggregate ' + classPrefix + '-' + className + ((depth & 1) ? ' isOdd' : ' isEven');
     var actuator = document.createElement('a');
     actuator.className = classPrefix + '-expander';
     actuator.textContent = header;
@@ -76,19 +76,19 @@ function renderCollapsible(header, className, items) {
     return el;
 }
 
-function renderArray(ary) {
+function renderArray(ary, depth) {
     var el = document.createElement('ol');
     el.setAttribute('start', 0);
     ary.forEach(function(val) {
         var wrap = document.createElement('li');
         wrap.className = classPrefix + '-ArrayItem';
-        wrap.appendChild(render(val));
+        wrap.appendChild(render(val, depth + 1));
         el.appendChild(wrap);
     });
-    return renderCollapsible('Array (' + ary.length + ')', 'Array', el);
+    return renderCollapsible('Array (' + ary.length + ')', 'Array', el, depth);
 }
 
-function renderObject(obj) {
+function renderObject(obj, depth) {
     var pairs = document.createElement('dl');
     for (var k in obj) {
         var dt = document.createElement('dt');
@@ -96,11 +96,11 @@ function renderObject(obj) {
         dt.textContent = k;
         var dd = document.createElement('dd');
         dd.className = classPrefix + '-ObjectValue';
-        dd.appendChild(render(obj[k]));
+        dd.appendChild(render(obj[k], depth + 1));
         pairs.appendChild(dt);
         pairs.appendChild(dd);
     }
-    return renderCollapsible('Object', 'Object', pairs);
+    return renderCollapsible('Object', 'Object', pairs, depth);
 }
 
 function registerObjectRenderer(test, renderer) {

@@ -1,5 +1,6 @@
 .RO {
 	font-family: monospace;
+	line-height: 1.3;
 }
 
 .RO-Array,
@@ -17,6 +18,7 @@
 
 .RO-expander {
 	font-weight: bold;
+	cursor: pointer;
 }
 
 .RO-expander:before {
@@ -33,11 +35,20 @@
 	display: none;
 }
 
+.RO-ArrayItems {
+	margin-left: 2.5em;
+}
+
 .RO-ArrayItem {
 	display: list-item;
 	list-style-type: decimal-leading-zero;
-	list-style-position: inside;
+	list-style-position: outside;
 }
+
+.RO-Aggregate { padding: 10px }
+
+.RO-Aggregate.isOdd { background: #f8f8f8; }
+.RO-Aggregate.isEven { background: #f0f0f0; }
 
 .isExpanded > .RO-ObjectItems,
 .isExpanded > .RO-ArrayItems {
