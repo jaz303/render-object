@@ -1,0 +1,1 @@
+watchify -o bundle.js main.js

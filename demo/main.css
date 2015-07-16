@@ -1,0 +1,82 @@
+.RO {
+	font-family: monospace;
+}
+
+.RO-Array,
+.RO-ArrayItems,
+.RO-ArrayItem,
+.RO-Object,
+.RO-ObjectItems,
+.RO-ObjectKey,
+.RO-ObjectValue
+ {
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+.RO-expander {
+	font-weight: bold;
+}
+
+.RO-expander:before {
+	content: '[+] ';
+}
+
+.isExpanded > .RO-expander:before {
+	content: '[-] ';
+}
+
+.RO-ObjectItems,
+.RO-ArrayItems {
+	padding-left: 1em;
+	display: none;
+}
+
+.RO-ArrayItem {
+	display: list-item;
+	list-style-type: decimal-leading-zero;
+	list-style-position: inside;
+}
+
+.isExpanded > .RO-ObjectItems,
+.isExpanded > .RO-ArrayItems {
+	display: block;
+}
+
+.RO-ObjectKey {
+	color: orange;
+}
+
+.RO-ObjectKey:after {
+	content: ':';
+}
+
+.RO-ObjectValue {
+	padding-left: 1em;
+}
+
+.RO-RegExp {
+	color: purple;
+}
+
+.RO-Boolean {
+	color: red;
+}
+
+.RO-Number {
+	color: blue;
+}
+
+.RO-String {
+	color: green;
+}
+
+.RO-Null,
+.RO-Undefined {
+	color: gray;
+}
+
+.RO-Date {
+	color: brown;
+}
