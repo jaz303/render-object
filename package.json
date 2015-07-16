@@ -1,0 +1,30 @@
+{
+  "name": "render-object",
+  "version": "1.0.0",
+  "description": "Render Javascript objects to DOM nodes for deubg and inspection",
+  "main": "index.js",
+  "dependencies": {
+    "is-array": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaz303/render-object.git"
+  },
+  "keywords": [
+    "json",
+    "object",
+    "debug",
+    "dom",
+    "inspect"
+  ],
+  "author": "Jason Frame <jason@onehackoranother.com> (http://jasonframe.co.uk)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaz303/render-object/issues"
+  },
+  "homepage": "https://github.com/jaz303/render-object"
+}
