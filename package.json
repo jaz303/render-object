@@ -1,6 +1,6 @@
 {
   "name": "render-object",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Render Javascript objects to DOM nodes for debug and inspection",
   "main": "index.js",
   "dependencies": {
