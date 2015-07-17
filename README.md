@@ -2,6 +2,8 @@
 
 Render Javascript objects to DOM nodes for deubg and inspection.
 
+![Screenshot](https://raw.githubusercontent.com/jaz303/render-object/master/screenshot.png)
+
 ## API
 
 #### var render = require('render-object')
