@@ -1,6 +1,6 @@
 # render-object
 
-Render Javascript objects to DOM nodes for deubg and inspection.
+Render Javascript objects to DOM nodes for debug and inspection.
 
 ![Screenshot](https://raw.githubusercontent.com/jaz303/render-object/master/screenshot.png)
 

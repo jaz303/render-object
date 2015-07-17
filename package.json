@@ -1,7 +1,7 @@
 {
   "name": "render-object",
   "version": "1.0.3",
-  "description": "Render Javascript objects to DOM nodes for deubg and inspection",
+  "description": "Render Javascript objects to DOM nodes for debug and inspection",
   "main": "index.js",
   "dependencies": {
     "is-array": "^1.0.1"
